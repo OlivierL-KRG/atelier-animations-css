@@ -65,6 +65,7 @@ body {
         • Ajout d'une transition sur la propriété transform, d'une durée de 300ms
         */
         //transition: ????? ?????;
+        transition: transform 300ms;
 
         /*
         @todo
@@ -72,6 +73,7 @@ body {
           https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scale
         */
         //transform: ????? ?????;
+        transform: scale(1, 0);
 
         /*
         @todo
@@ -81,6 +83,7 @@ body {
           https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin
         */
         //transform-origin: ????? ?????;
+        transform-origin: bottom center;
 
         filter: blur(1px);
         border-radius: 12px 12px 0 0;
@@ -128,6 +131,7 @@ body {
     */
     #{$light-saber-hilt}:active + #{$light-saber-plasma} {
         //transform: ????? ?????;
+        transform: scale(1, 1);
     }
 
     /*
@@ -136,6 +140,7 @@ body {
     */
     #{$light-saber-hilt}:active > #{$light-saber-switch} {
         //transform: ????? ?????;
+        transform: scale(.7, 1);
 
         background-color: #9a4031;
     }
