@@ -1,0 +1,142 @@
+body {
+    background: #333;
+}
+
+.light-saber-container {
+    display: flex;
+    justify-content: center;
+
+    padding-top: 325px;
+}
+
+.light-saber {
+    $light-saber-hilt: #{&}__hilt;
+    $light-saber-switch: #{&}__switch;
+    $light-saber-plasma: #{&}__plasma;
+
+    position: relative;
+
+    #{$light-saber-hilt} {
+        z-index: 1;
+
+        width: 15px;
+        height: 50px;
+
+        cursor: pointer;
+
+        border-top: solid 5px grey;
+        border-bottom: solid 4px grey;
+        border-radius: 5px;
+        background: rgb(226, 226, 226);
+        background: linear-gradient(
+                to right,
+                rgba(226, 226, 226, 1) 0%,
+                rgba(219, 219, 219, 1) 50%,
+                rgba(209, 209, 209, 1) 51%,
+                rgba(254, 254, 254, 1) 100%
+        );
+    }
+
+    #{$light-saber-switch} {
+        position: absolute;
+        bottom: 25px;
+        left: 13px;
+
+        width: 3px;
+        height: 10px;
+
+        border-radius: 10px;
+        background: #b94a37;
+    }
+
+    &__plasma {
+        position: absolute;
+        z-index: -1;
+        bottom: 45px;
+        left: 2px;
+
+        display: block;
+
+        width: 10px;
+        height: 250px;
+
+        /*
+        @todo
+        • Ajout d'une transition sur la propriété transform, d'une durée de 300ms
+        */
+        //transition: ????? ?????;
+
+        /*
+        @todo
+        • On redimensionne (réduis la taille à zéro) via la fonction scale
+          https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scale
+        */
+        //transform: ????? ?????;
+
+        /*
+        @todo
+        • Configure l’origine de la transformation
+          y : bottom
+          x : center
+          https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin
+        */
+        //transform-origin: ????? ?????;
+
+        filter: blur(1px);
+        border-radius: 12px 12px 0 0;
+
+        &--red {
+            background: linear-gradient(
+                    to right,
+                    rgba(229, 17, 21, 1) 0%,
+                    rgba(254, 254, 254, 1) 30%,
+                    rgba(254, 254, 254, 1) 47%,
+                    rgba(254, 254, 254, 1) 71%,
+                    rgba(229, 17, 21, 1) 100%
+            );
+            box-shadow: 0 0 10px #e51115;
+        }
+
+        &--blue {
+            background: linear-gradient(
+                    to right,
+                    rgba(13, 111, 212) 0%,
+                    rgba(254, 254, 254, 1) 30%,
+                    rgba(254, 254, 254, 1) 47%,
+                    rgba(254, 254, 254, 1) 71%,
+                    rgba(13, 111, 212) 100%
+            );
+            box-shadow: 0 0 10px #0d6fd4;
+        }
+
+        &--green {
+            background: linear-gradient(
+                    to right,
+                    rgba(33, 146, 61) 0%,
+                    rgba(254, 254, 254, 1) 30%,
+                    rgba(254, 254, 254, 1) 47%,
+                    rgba(254, 254, 254, 1) 71%,
+                    rgba(33, 146, 61) 100%
+            );
+            box-shadow: 0 0 10px #21923d;
+        }
+    }
+
+    /*
+    @todo
+    • Au clic sur la poignée, le laser prend la taille voulue en hauteur
+    */
+    #{$light-saber-hilt}:active + #{$light-saber-plasma} {
+        //transform: ????? ?????;
+    }
+
+    /*
+    @todo
+    • Au clic sur la poignée, on presse le bouton
+    */
+    #{$light-saber-hilt}:active > #{$light-saber-switch} {
+        //transform: ????? ?????;
+
+        background-color: #9a4031;
+    }
+}
