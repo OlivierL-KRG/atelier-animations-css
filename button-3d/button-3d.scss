@@ -1,0 +1,129 @@
+body {
+    background-color: #f4fcf8;
+
+    font-family: sans-serif;
+}
+
+$color-on: #59cd90;
+$color-off: #ee6352;
+$btn-height: 7.5vw;
+
+// Couvre la face visible du bouton
+@mixin facet {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.button-3d {
+    $button-wrap: #{&}__wrap;
+
+    position: relative;
+
+    width: 25vw;
+    height: $btn-height;
+    margin: 100px auto;
+
+    cursor: pointer;
+    user-select: none;
+
+    color: white;
+
+    font-size: 3.5rem;
+
+    /*
+    @todo
+    • Ajout de la perspective pour l'effet 3d
+      https://developer.mozilla.org/en-US/docs/Web/CSS/perspective
+    */
+    //perspective: ?????;
+
+    &__wrap {
+        @include facet;
+
+        /*
+        @todo
+        • Ajoute une transition d'une demi-seconde (500ms) sur la propriété transform
+          https://developer.mozilla.org/en-US/docs/Web/CSS/transform
+        • Bonus : Ajout d'un effet bezier sur la durée
+          https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function
+        */
+        //transition: ????? ????? ?????;
+
+        /*
+        @todo
+        • On initialise la propriété transform, avec les valeurs rotateX et translateZ à zéro :
+          - rotateX() : Rotation d’un élément autour de l’abscisse (axe horizontal)
+            -> 0deg
+            https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateX
+
+          - translateZ() : Repositionne un élément sur l’axe Z (3D) : Zoom/dezoom
+            -> 0
+            https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateZ
+        */
+        //transform: ????? ?????;
+
+        /*
+        @todo
+        • Configure l’origine de la transformation d’éléments depuis le centre du bouton
+          -> x : center
+             y : bottom
+             z :  $btn-height/2
+          https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin
+        */
+        //transform-origin: ????? ????? ?????;
+
+        /*
+        @todo
+        • Faire en sorte que l'animation fonctionne en mode 3d
+          https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style
+        */
+        //transform-style: ?????;
+    }
+
+    &:active {
+        #{$button-wrap} {
+            /*
+            @todo
+            • Rotation du bouton sur l'axe horizontal (-90deg) quand on clique dessus
+            */
+            //transform: ????? ?????;
+        }
+    }
+
+    &__facet--off {
+        @include facet;
+
+        /*
+        @todo
+        • Face visible "OFF" :
+        Via la propriété transform
+        - Zoomer (taille du bouton / 2)
+        */
+        //transform: ????? ?????;
+
+        background: $color-off;
+    }
+
+    &__facet--on {
+        @include facet;
+
+        /*
+        @todo
+        • Face visible "ON" :
+        Via la propriété transform
+        - Rotation sur l'axe horizontal (90deg)
+        - Zoomer (taille du bouton / 2)
+        */
+        //transform: ????? ?????;
+
+        background: $color-on;
+    }
+}
